@@ -1,10 +1,109 @@
 <!DOCTYPE html>
-<html lang="zh"><head><meta charset="UTF-8"><title>策划案 | 向佩莹</title><style>body { margin: 0; background: #000; color: #fff; font-family: Helvetica; } nav { padding: 40px; border-bottom: 2px solid #fff; } .back { color: #fff; text-decoration: none; border: 1px solid #fff; padding: 10px 20px; } .container { padding: 60px 40px; } h1 { font-size: 8vw; font-weight: 900; border-bottom: 10px solid #fff; display: inline-block; } .project { margin-bottom: 100px; } img { width: 100%; border: 1px solid #222; margin-top: 20px; }</style></head>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEATURED PLANS | 向佩莹</title>
+    <style>
+        /* 全局样式：保持与 UI 页面统一的极简白 */
+        body { margin: 0; background: #ffffff; color: #000; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center; overflow-x: hidden; }
+
+        /* 顶部导航 */
+        nav { padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; }
+        .back-pill { 
+            background: #fff; 
+            color: #000; 
+            text-decoration: none; 
+            font-weight: 900; 
+            padding: 12px 30px; 
+            border-radius: 100px; 
+            border: 4px solid #000;
+            font-size: 1.3em;
+            transition: 0.2s ease-in-out;
+        }
+        .back-pill:hover { background: #000; color: #fff; transform: scale(1.05); }
+        .designer-name { font-size: 2.2em; font-weight: 900; letter-spacing: -1px; }
+
+        /* 英雄区：超大黑体标题 */
+        .hero { padding: 20px 20px 80px 20px; }
+        .sub-head { text-transform: uppercase; font-weight: 900; letter-spacing: 1px; font-size: 1.8em; margin-bottom: 5px; }
+        .hint { font-size: 1.1em; color: #666; font-weight: 600; margin-bottom: 30px; }
+        h1 { font-size: 12vw; line-height: 0.82; margin: 0; font-weight: 900; text-transform: uppercase; letter-spacing: -6px; }
+
+        /* 卡片网格布局 */
+        .card-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); 
+            gap: 35px; 
+            padding: 0 60px 120px 60px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* 核心卡片样式 */
+        .card {
+            background: #fff;
+            border-radius: 35px;
+            overflow: hidden;
+            text-decoration: none;
+            color: #000;
+            border: 6px solid #000;
+            display: flex;
+            flex-direction: column;
+            transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .card:hover { 
+            transform: translate(-10px, -10px); 
+            box-shadow: 14px 14px 0px #000; 
+        }
+
+        /* 卡片上半部分：策划案配色 */
+        .card-top { height: 320px; display: flex; justify-content: center; align-items: center; border-bottom: 6px solid #000; padding: 20px; }
+        .card-1 .card-top { background: #BF94FF; } /* 紫色 */
+        .card-2 .card-top { background: #FFD93D; } /* 鲜黄 */
+
+        .card-top img { max-width: 85%; max-height: 85%; object-fit: contain; border-radius: 15px; }
+
+        /* 卡片文字区 */
+        .card-info { padding: 35px; text-align: left; background: #fff; flex-grow: 1; }
+        .card-num { font-weight: 900; font-size: 1.4em; display: block; margin-bottom: 8px; }
+        .card-title { font-weight: 900; font-size: 2em; line-height: 1.1; letter-spacing: -0.5px; }
+        .card-detail { font-size: 0.9em; color: #888; margin-top: 15px; font-weight: 700; text-transform: uppercase; }
+
+    </style>
+</head>
 <body>
-    <nav><a href="index.html" class="back">← BACK</a></nav>
-    <div class="container">
-        <h1>策划方案 / PLAN</h1>
-        <div class="project"><h3>01_品牌年度推广方案</h3><img src="3.png"></div>
-        <div class="project"><h3>02_线下快闪店方案</h3><img src="4.png"></div>
-    </div>
-</body></html>
+
+<nav>
+    <a href="index.html" class="back-pill">← INDEX</a>
+    <div class="designer-name">向佩莹</div>
+</nav>
+
+<div class="hero">
+    <div class="sub-head">Featured Plans</div>
+    <div class="hint">Select recent and notable branding projects</div>
+    <h1>BRANDING<br>PLANS.</h1>
+</div>
+
+<div class="card-grid">
+    <a href="plan-project1.html" class="card card-1">
+        <div class="card-top"><img src="4.png"></div>
+        <div class="card-info">
+            <span class="card-num">01.</span>
+            <div class="card-title">品牌年度推广方案</div>
+            <div class="card-detail">BRANDING STRATEGY<br>ANNUAL MARKETING PLAN</div>
+        </div>
+    </a>
+
+    <a href="plan-project2.html" class="card card-2">
+        <div class="card-top"><img src="5.png"></div>
+        <div class="card-info">
+            <span class="card-num">02.</span>
+            <div class="card-title">线下快闪店策划案</div>
+            <div class="card-detail">OFFLINE EVENT DESIGN<br>POP-UP STORE CONCEPT</div>
+        </div>
+    </a>
+</div>
+
+</body>
+</html>
