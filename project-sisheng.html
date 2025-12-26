@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拾声 | MOTION DESIGN</title>
+    <style>
+        body { margin: 0; background: #2E7D32; font-family: sans-serif; text-align: center; }
+        nav { 
+            padding: 20px; background: #fff; border-bottom: 5px solid #000; 
+            display: flex; justify-content: space-between; align-items: center; 
+            position: sticky; top: 0; z-index: 100;
+        }
+        .back-pill { 
+            text-decoration: none; color: #000; font-weight: 900; 
+            border: 3px solid #000; padding: 8px 20px; border-radius: 50px; 
+            transition: 0.2s;
+        }
+        .back-pill:hover { background: #000; color: #fff; }
 
+        .content { 
+            background: #fff; padding: 60px 0; 
+            display: flex; flex-direction: column; align-items: center; gap: 40px; 
+        }
+
+        /* 统一媒体容器样式 */
+        .media-box { 
+            width: 90%; max-width: 1000px; 
+            border: 5px solid #000; border-radius: 15px; 
+            box-shadow: 12px 12px 0px #000; overflow: hidden; background: #f0f0f0;
+        }
+        video, img { width: 100%; display: block; object-fit: cover; }
+
+        /* 标签样式 */
+        .tag { background: #000; color: #fff; padding: 6px 25px; font-weight: 900; border-radius: 5px; font-size: 0.9em; }
+        
+        .section-title { font-weight: 900; font-size: 1.5em; margin-bottom: -10px; color: #2E7D32; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="video.html" class="back-pill">← BACK</a>
+    <div style="font-weight:900; letter-spacing: 1px;">01 / 拾声 SISHENG</div>
+</nav>
+
+<div class="content">
+    <div class="tag">COVER & KEY VISION</div>
+    <div class="media-box">
+        <img src="47.png" alt="拾声封面 47">
+    </div>
+
+    <div class="section-title">Visual Interaction 01</div>
+    <div class="media-box">
+        <video autoplay loop muted playsinline>
+            <source src="50.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="tag">INTERFACE DETAILS</div>
+    <div class="media-box">
+        <img src="48.png" alt="详情图 48">
+    </div>
+
+    <div class="section-title">Visual Interaction 02</div>
+    <div class="media-box">
+        <video autoplay loop muted playsinline>
+            <source src="51.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="tag">SCENE DISPLAY</div>
+    <div class="media-box">
+        <img src="49.png" alt="详情图 49">
+    </div>
+
+    <div class="section-title">Final Motion</div>
+    <div class="media-box">
+        <video autoplay loop muted playsinline controls>
+            <source src="53.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+</body>
+</html>
