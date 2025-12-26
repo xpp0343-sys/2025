@@ -7,23 +7,24 @@
         body { margin: 0; background: #4A90E2; color: #fff; font-family: 'Helvetica', sans-serif; }
         
         /* 顶部导航 */
-        nav { padding: 40px; border-bottom: 5px solid #000; display: flex; justify-content: space-between; align-items: center; background: #fff; }
-        .back-btn { color: #000; text-decoration: none; font-weight: 900; font-size: 1.2em; border: 3px solid #000; padding: 10px 20px; transition: 0.2s; }
+        nav { padding: 40px; border-bottom: 5px solid #000; display: flex; justify-content: space-between; align-items: center; background: #fff; position: sticky; top: 0; z-index: 100; }
+        .back-btn { color: #000; text-decoration: none; font-weight: 900; font-size: 1.2em; border: 3px solid #000; padding: 10px 20px; transition: 0.3s; }
         .back-btn:hover { background: #000; color: #fff; }
 
         /* 头部展示 */
-        .hero { padding: 100px 40px; border-bottom: 5px solid #000; color: #000; background: #fff; }
+        .hero { padding: 100px 40px; border-bottom: 5px solid #000; color: #000; background: #fff; text-align: center; }
         h1 { font-size: 8vw; line-height: 0.9; margin: 0; font-weight: 900; text-transform: uppercase; }
         .tagline { font-size: 1.5em; margin-top: 30px; font-weight: bold; background: #000; color: #fff; display: inline-block; padding: 5px 15px; }
 
         /* 内容区 */
-        .content { padding: 60px 40px; background: #4A90E2; }
+        .content { padding: 60px 40px; background: #4A90E2; display: flex; flex-direction: column; align-items: center; gap: 40px; }
         .case-img { 
             width: 100%; 
+            max-width: 900px; 
             border: 5px solid #000; 
-            margin-bottom: 60px; 
             box-shadow: 20px 20px 0px #000; 
-            background: #fff;
+            background: #fff; 
+            display: block;
         }
 
         footer { padding: 80px 40px; text-align: center; font-weight: 900; letter-spacing: 2px; }
@@ -42,7 +43,9 @@
 </div>
 
 <div class="content">
-    <img src="3.png" class="case-img" alt="H5作品展示">
+    <img src="3.png" class="case-img" alt="H5作品展示1">
+    
+    <img src="13.png" class="case-img" alt="H5作品展示2">
 </div>
 
 <footer>
