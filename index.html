@@ -5,101 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>向佩莹 | PORTFOLIO</title>
     <style>
-        /* 1. 全局样式：Spencer Gabor 偏爱的干净、高对比度基础 */
+        /* 复刻 Spencer Gabor 的设计美学：大字报、扇形卡片、极简底色 */
         body { 
-            margin: 0; background: #f0f0f0; color: #1a1a1a; 
-            font-family: 'Arial Black', 'Inter', sans-serif;
-            overflow: hidden; height: 100vh; display: flex;
-            flex-direction: column; align-items: center; justify-content: center;
+            margin: 0; background: #f5f5f5; color: #000; 
+            font-family: 'Arial Black', sans-serif;
+            overflow: hidden; height: 100vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
 
-        /* 2. 顶部巨型动态文字：实现截图中的视觉张力 */
-        .title-top {
+        /* 顶部巨型空心文字或粗体文字 */
+        .header-title {
             font-size: 10vw; font-weight: 900; text-transform: uppercase;
-            letter-spacing: -5px; line-height: 0.8; margin-bottom: -4vw;
-            z-index: 10; pointer-events: none; white-space: nowrap;
+            letter-spacing: -4px; line-height: 0.8; margin-bottom: -5vw;
+            z-index: 10; pointer-events: none; opacity: 1;
         }
 
-        /* 3. 卡片扇形堆叠容器 */
-        .stack-wrap {
-            position: relative; width: 100%; height: 55vh;
+        /* 扇形容器 */
+        .card-stage {
+            position: relative; width: 100%; height: 50vh;
             display: flex; justify-content: center; align-items: center;
-            perspective: 1000px;
+            perspective: 1200px;
         }
 
-        /* 4. 单张卡片设计：粗黑边 + 悬停动画 */
-        .work-card {
-            position: absolute; width: 260px; height: 340px;
-            border-radius: 24px; border: 5px solid #000;
+        /* 单个卡片堆叠效果 */
+        .stack-card {
+            position: absolute; width: 280px; height: 360px;
+            border-radius: 20px; border: 5px solid #000;
             background-size: cover; background-position: center;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer; text-decoration: none;
-            box-shadow: 12px 12px 0px rgba(0,0,0,0.1);
-            display: flex; align-items: flex-end; padding: 20px;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
         }
 
-        /* 鼠标划过卡片：跳出来、变正、产生强烈阴影 */
-        .work-card:hover {
-            transform: scale(1.15) translateY(-40px) rotate(0deg) !important;
+        /* 鼠标悬停：卡片弹起并摆正 */
+        .stack-card:hover {
+            transform: scale(1.1) translateY(-40px) rotate(0deg) !important;
             z-index: 100 !important;
             box-shadow: 25px 25px 0px rgba(0,0,0,0.2);
         }
 
-        /* 扇形定位：精确还原截图位置 */
-        .c1 { background-color: #A3FF12; background-image: url('73.png'); transform: rotate(-12deg) translateX(-200px); }
-        .c2 { background-color: #2979FF; background-image: url('83.png'); transform: rotate(-4deg) translateX(-70px); }
-        .c3 { background-color: #FF3D00; background-image: url('100.png'); transform: rotate(4deg) translateX(70px); }
-        .c4 { background-color: #FF80AB; background-image: url('101.png'); transform: rotate(12deg) translateX(200px); }
+        /* 扇形角度（精确匹配你截图中 4 张卡片的分布） */
+        .c1 { background-color: #A3FF12; background-image: url('73.png'); transform: rotate(-12deg) translateX(-180px); }
+        .c2 { background-color: #2979FF; background-image: url('83.png'); transform: rotate(-4deg) translateX(-60px); }
+        .c3 { background-color: #FF3D00; background-image: url('100.png'); transform: rotate(4deg) translateX(60px); }
+        .c4 { background-color: #FF80AB; background-image: url('101.png'); transform: rotate(12deg) translateX(180px); }
 
-        /* 卡片上的白色标签 */
-        .tag {
-            background: #fff; color: #000; padding: 6px 15px;
-            border: 4px solid #000; font-weight: 900; font-size: 0.8em;
-            text-transform: uppercase;
+        /* 卡片底部的小标签 */
+        .card-label {
+            position: absolute; bottom: 15px; left: 15px;
+            background: #fff; color: #000; padding: 5px 12px;
+            border: 3px solid #000; font-weight: 900; font-size: 0.9em;
         }
 
-        /* 5. 底部装饰性大字 */
-        .title-bottom {
-            font-size: 7vw; font-weight: 900; text-transform: uppercase;
-            color: #d8d8d8; letter-spacing: -3px; line-height: 0.8;
-            margin-top: -3vw; z-index: 1; pointer-events: none;
-            text-align: center;
-        }
-
-        /* 适配移动端 */
-        @media (max-width: 768px) {
-            .work-card { width: 160px; height: 220px; border-width: 3px; }
-            .c1 { transform: rotate(-10deg) translateX(-90px); }
-            .c2 { transform: rotate(-4deg) translateX(-30px); }
-            .c3 { transform: rotate(4deg) translateX(30px); }
-            .c4 { transform: rotate(10deg) translateX(90px); }
-            .title-top { font-size: 15vw; }
+        /* 底部背景文字 */
+        .footer-bg-text {
+            font-size: 7vw; font-weight: 900; color: #e0e0e0;
+            letter-spacing: -2px; margin-top: -3vw; z-index: 1;
+            text-align: center; pointer-events: none;
         }
     </style>
 </head>
 <body>
 
-    <div class="title-top">向佩莹. DESIGN</div>
+    <div class="header-title">XIANG PEIYING</div>
 
-    <div class="stack-wrap">
-        <a href="other-3.html" class="work-card c1" style="z-index: 4;">
-            <div class="tag">01 / CHARACTER</div>
+    <div class="card-stage">
+        <a href="other-3.html" class="stack-card c1" style="z-index: 4;">
+            <div class="card-label">01 / CHARACTER</div>
         </a>
-
-        <a href="poster-detail.html" class="work-card c2" style="z-index: 3;">
-            <div class="tag">02 / POSTER</div>
+        <a href="poster-detail.html" class="stack-card c2" style="z-index: 3;">
+            <div class="card-label">02 / POSTER</div>
         </a>
-
-        <a href="other-vi.html" class="work-card c3" style="z-index: 2;">
-            <div class="tag">03 / IDENTITY</div>
+        <a href="other-vi.html" class="stack-card c3" style="z-index: 2;">
+            <div class="card-label">03 / IDENTITY</div>
         </a>
-
-        <a href="other-creative.html" class="work-card c4" style="z-index: 1;">
-            <div class="tag">04 / CREATIVE</div>
+        <a href="other-creative.html" class="stack-card c4" style="z-index: 1;">
+            <div class="card-label">04 / CREATIVE</div>
         </a>
     </div>
 
-    <div class="title-bottom">ILLUSTRATOR &<br>VISUAL ARTIST</div>
+    <div class="footer-bg-text">ILLUSTRATOR &<br>DESIGNER</div>
 
 </body>
 </html>
