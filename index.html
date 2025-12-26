@@ -1,31 +1,100 @@
+Spencer Gabor 的作品集风格非常鲜明：大胆的色块（通常是高对比度的黑白或亮色）、极简的线条感、粗大的非衬线字体（Typography），以及非常丝滑的悬停（Hover）互动。
+
+要模仿这种风格并实现你要求的“首页 -> 分类 -> 作品详情”的跳转，我为你重新编写了 index.html 的代码。
+
+🎨 模仿 Spencer Gabor 风格的设计要点：
+极简黑白灰：背景纯黑，文字纯白，线条干净。
+
+超大标题：首页一眼就能看到你的名字和“2025”。
+
+板块分割：用粗线条划分 UI、策划、视频等板块。
+
+🚀 请覆盖你的 index.html 为这段代码：
+HTML
+
 <!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 艺术作品集</title>
+    <title>XIANG PEIYING | 2025 Portfolio</title>
     <style>
-        body { margin: 0; background: #000; color: #fff; font-family: sans-serif; text-align: center; }
-        header { padding: 100px 20px; }
-        h1 { font-size: 3em; letter-spacing: 10px; font-weight: 100; text-transform: uppercase; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px; }
-        .card { background: #111; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; border: 1px solid #222; }
-        video { width: 100%; height: 100%; object-fit: cover; }
+        /* 全局 Spencer 风格：大胆、极简 */
+        body { margin: 0; background: #000; color: #fff; font-family: 'Helvetica', Arial, sans-serif; }
+        
+        /* 首页大标头 */
+        header { 
+            height: 90vh; 
+            padding: 40px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-end; /* 标题放在底部，Spencer 常用布局 */
+            border-bottom: 2px solid #fff;
+        }
+        h1 { font-size: 15vw; line-height: 0.8; margin: 0; font-weight: 900; letter-spacing: -5px; }
+        .designer-info { margin-top: 20px; font-size: 1.5em; letter-spacing: 2px; }
+
+        /* 分类导航：像 Spencer 那样用大号字和粗线 */
+        .category-section {
+            display: flex;
+            flex-direction: column;
+        }
+        .cat-link {
+            padding: 60px 40px;
+            border-bottom: 2px solid #fff;
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .cat-link:hover { background: #fff; color: #000; }
+        .cat-name { font-size: 4em; font-weight: 800; text-transform: uppercase; }
+        .cat-num { font-size: 1.5em; font-weight: 300; }
+
+        /* 页脚 */
+        footer { padding: 40px; font-size: 0.8em; color: #444; }
+
+        /* 响应式：手机端文字变小一点 */
+        @media (max-width: 768px) {
+            h1 { font-size: 20vw; }
+            .cat-name { font-size: 2em; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>- 2025 -</h1>
-        <p>DIGITAL ART & MOTION DESIGN</p>
-    </header>
 
-    <div class="grid">
-        <div class="card">
-            <p style="color:#444">等待上传视频文件...</p>
-        </div>
-        <div class="card">
-            <p style="color:#444">等待上传视频文件...</p>
-        </div>
-    </div>
+<header>
+    <div class="designer-info">向佩莹 / XIANG PEIYING</div>
+    <h1>DESIGNER <br> 2025.</h1>
+</header>
+
+<div class="category-section">
+    <a href="ui.html" class="cat-link">
+        <span class="cat-name">UI设计</span>
+        <span class="cat-num">01 / 02一套</span>
+    </a>
+
+    <a href="plan.html" class="cat-link">
+        <span class="cat-name">策划案</span>
+        <span class="cat-num">02 / 02套</span>
+    </a>
+
+    <a href="video.html" class="cat-link">
+        <span class="cat-name">视频作品</span>
+        <span class="cat-num">03 / 02套</span>
+    </a>
+
+    <a href="visual.html" class="cat-link">
+        <span class="cat-name">其他视觉</span>
+        <span class="cat-num">04 / 多项</span>
+    </a>
+</div>
+
+<footer>
+    &copy; 2025 XIANG PEIYING - SCROLL TO EXPLORE
+</footer>
+
 </body>
 </html>
