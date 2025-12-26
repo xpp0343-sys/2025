@@ -5,73 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FEATURED PROJECTS | 向佩莹</title>
     <style>
-        /* 全局背景色改为这种淡淡的灰白色调 */
-        body { margin: 0; background: #f2f2f2; color: #000; font-family: 'Inter', sans-serif; text-align: center; }
+        /* 全局背景色调优 */
+        body { margin: 0; background: #f8f8f8; color: #000; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center; }
 
-        /* 顶部导航：胶囊形状按钮 */
-        nav { padding: 30px; display: flex; justify-content: space-between; align-items: center; position: relative; }
+        /* 顶部胶囊导航 */
+        nav { padding: 30px 50px; display: flex; justify-content: space-between; align-items: center; }
         .back-pill { 
             background: #fff; 
             color: #000; 
             text-decoration: none; 
             font-weight: 900; 
-            padding: 10px 25px; 
-            border-radius: 50px; /* 胶囊圆角 */
-            border: 2px solid #000;
-            display: flex;
-            align-items: center;
-            font-size: 1.2em;
+            padding: 8px 25px; 
+            border-radius: 50px; 
+            border: 3px solid #000;
+            font-size: 1.1em;
+            transition: 0.2s;
         }
-        .back-pill:hover { background: #000; color: #fff; }
+        .back-pill:hover { background: #000; color: #fff; transform: scale(1.05); }
 
-        /* 中间巨大的标题展示 */
-        .hero { padding: 60px 20px; }
-        .sub-head { text-transform: uppercase; font-weight: 900; letter-spacing: 2px; font-size: 1.5em; margin-bottom: 5px; }
-        .hint { font-size: 0.9em; color: #666; margin-bottom: 40px; }
-        h1 { font-size: 8vw; line-height: 0.9; margin: 0; font-weight: 900; text-transform: uppercase; }
+        /* 英雄区：超大黑体标题 */
+        .hero { padding: 40px 20px 80px 20px; }
+        .sub-head { text-transform: uppercase; font-weight: 900; letter-spacing: 2px; font-size: 1.2em; margin-bottom: 5px; }
+        h1 { font-size: 10vw; line-height: 0.85; margin: 0; font-weight: 900; text-transform: uppercase; letter-spacing: -2px; }
 
         /* 卡片网格布局 */
         .card-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 20px; 
-            padding: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
+            padding: 0 50px 100px 50px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        /* 截图中的核心卡片样式 */
+        /* 核心卡片样式：加入大圆角和外边框 */
         .card {
-            background: #000; /* 卡片边框色 */
-            border-radius: 20px; /* 整体大圆角 */
+            background: #fff;
+            border-radius: 24px; /* 截图中的大圆角 */
             overflow: hidden;
             text-decoration: none;
             color: #000;
-            border: 8px solid #000; /* 极粗的黑边框 */
+            border: 5px solid #000; /* 粗黑边 */
             display: flex;
             flex-direction: column;
-            transition: 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* 默认状态下的投影 */
+            box-shadow: 0px 0px 0px #000;
         }
-        .card:hover { transform: translateY(-10px); }
+
+        /* 鼠标悬停时的动态效果：向上位移并出现重阴影 */
+        .card:hover { 
+            transform: translate(-8px, -8px); 
+            box-shadow: 12px 12px 0px #000; 
+        }
 
         /* 卡片上半部分：色块区 */
-        .card-top { height: 200px; display: flex; justify-content: center; align-items: center; }
-        .card-1 .card-top { background: #50E3C2; } /* 逐光-绿 */
-        .card-2 .card-top { background: #F5A623; } /* 佛韵-橙 */
-        .card-3 .card-top { background: #4A90E2; } /* H5-蓝 */
+        .card-top { height: 260px; display: flex; justify-content: center; align-items: center; border-bottom: 5px solid #000; padding: 20px; }
+        
+        /* 这里的背景色参考了你发的那张彩色卡片截图 */
+        .card-1 .card-top { background: #63d2ff; } /* 科技蓝 */
+        .card-2 .card-top { background: #ff9dcc; } /* 樱花粉 */
+        .card-3 .card-top { background: #50e3c2; } /* 极光绿 */
 
-        .card-top img { width: 60%; height: auto; object-fit: contain; }
+        .card-top img { width: 90%; height: 90%; object-fit: contain; border-radius: 12px; }
 
         /* 卡片下半部分：白底文字区 */
-        .card-info { 
-            background: #fff; 
-            padding: 20px; 
-            text-align: left; 
-            border-top: 8px solid #000; /* 分割线 */
-        }
-        .card-num { font-weight: 900; font-size: 1.2em; display: block; }
-        .card-title { font-weight: 900; font-size: 1.4em; margin-top: 5px; line-height: 1.2; }
-        .card-detail { font-size: 0.7em; color: #888; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .card-info { padding: 25px; text-align: left; background: #fff; flex-grow: 1; }
+        .card-num { font-weight: 900; font-size: 1.1em; display: block; margin-bottom: 5px; }
+        .card-title { font-weight: 900; font-size: 1.6em; line-height: 1.1; letter-spacing: -0.5px; }
+        .card-detail { font-size: 0.8em; color: #666; margin-top: 15px; font-weight: bold; text-transform: uppercase; }
 
     </style>
 </head>
@@ -79,13 +81,12 @@
 
 <nav>
     <a href="index.html" class="back-pill">← INDEX</a>
-    <div style="font-weight: 900; font-size: 1.5em;">向佩莹</div>
+    <div style="font-weight: 900; font-size: 1.8em; letter-spacing: -1px;">XIANG PEIYING.</div>
 </nav>
 
 <div class="hero">
     <div class="sub-head">Featured Work</div>
-    <div class="hint">Select recent and notable projects</div>
-    <h1>FEATURED<br>PROJECTS.</h1>
+    <h1>UI PROJECTS.</h1>
 </div>
 
 <div class="card-grid">
@@ -93,8 +94,8 @@
         <div class="card-top"><img src="1.png"></div>
         <div class="card-info">
             <span class="card-num">01.</span>
-            <div class="card-title">逐光·家庭异地就医服务</div>
-            <div class="card-detail">MOBILE APP UI & UX DESIGN<br>HEALTHCARE SERVICE</div>
+            <div class="card-title">逐光 - 家庭异地就医服务</div>
+            <div class="card-detail">Family Healthcare / UX UI</div>
         </div>
     </a>
 
@@ -102,8 +103,8 @@
         <div class="card-top"><img src="2.png"></div>
         <div class="card-info">
             <span class="card-num">02.</span>
-            <div class="card-title">佛韵丹青·五音疗愈</div>
-            <div class="card-detail">MUSIC APP & BRANDING<br>MEDITATION DESIGN</div>
+            <div class="card-title">佛韵丹青 - 五音疗愈音乐APP</div>
+            <div class="card-detail">Music Therapy / Brand Identity</div>
         </div>
     </a>
 
@@ -111,8 +112,8 @@
         <div class="card-top"><img src="3.png"></div>
         <div class="card-info">
             <span class="card-num">03.</span>
-            <div class="card-title">H5设计·人才与雇主对接</div>
-            <div class="card-detail">RECRUITMENT PLATFORM<br>H5 INTERACTIVE DESIGN</div>
+            <div class="card-title">H5设计 - 精准人才对接</div>
+            <div class="card-detail">Interactive / Recruitment</div>
         </div>
     </a>
 </div>
