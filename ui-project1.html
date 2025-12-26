@@ -9,7 +9,7 @@
         nav { padding: 20px; background: #fff; border-bottom: 5px solid #000; display: flex; justify-content: space-between; align-items: center; }
         .back-pill { text-decoration: none; color: #000; font-weight: 900; border: 3px solid #000; padding: 8px 20px; border-radius: 50px; }
         #gallery-container { background: #fff; padding: 40px 0; display: flex; flex-direction: column; align-items: center; gap: 30px; }
-        .case-img { width: 90%; max-width: 1000px; border: 5px solid #000; border-radius: 15px; box-shadow: 12px 12px 0px #000; }
+        .case-img { width: 90%; max-width: 1000px; border: 5px solid #000; border-radius: 15px; box-shadow: 12px 12px 0px #000; display: block; }
     </style>
 </head>
 <body>
@@ -23,26 +23,21 @@
     </div>
 
 <script>
+    // 强制使用纯英文代码，请勿翻译此段
     const container = document.getElementById('gallery-container');
-    const totalImages = 12; 
+    const totalImages = 12;
 
     for (let i = 1; i <= totalImages; i++) {
         const img = document.createElement('img');
-        
-        // 关键点：匹配你 GitHub 截图里那个带句号的文件名
-        img.src = `ui1-${i}.png。`; 
-        
         img.className = 'case-img';
-        img.alt = `Slide ${i}`;
         
-        // 容错处理：如果带句号的加载失败，尝试加载不带句号的
-        img.onerror = function() {
-            if (this.src.includes('png。')) {
-                this.src = `ui1-${i}.png`;
-            } else {
-                this.style.display = 'none';
-            }
-        };
+        // 根据你的 GitHub 截图，文件名带有一个中文句号
+        // 特殊处理第 12 张图，因为它漏了点号
+        if (i === 12) {
+            img.src = "ui1-12png。";
+        } else {
+            img.src = "ui1-" + i + ".png。";
+        }
 
         container.appendChild(img);
     }
